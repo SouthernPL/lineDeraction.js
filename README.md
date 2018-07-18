@@ -25,4 +25,18 @@
 		          }
 		        })
 # 参数说明
-
+	 //创建实例的参数说明
+	map:object,
+	wkid:num,
+	lineColor:string,
+	lineWidth:num,
+        arrowColor:string,
+  	arrowSize:num,
+  	arrowPic:string,
+  	step:num,
+	data:[[x,y],[x,y],[x,y]...],
+  	correctAngle:num//正常情况下箭头方向朝右视为0°，当你的图片箭头朝向是其他时，需要输入与0°的偏差用于矫正;我的示例中图片的箭头是朝下的所以示例中的参数输入的是90
+  	startPic:'',
+  	startSize:25,
+  	endPic:'',
+  	endSize:25
