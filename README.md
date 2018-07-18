@@ -1,7 +1,7 @@
 # lineDeraction.js
 基于arcgis for js 绘制带有箭头的导航线条 可以用于行驶轨迹等场景
-#demo
-![image](https://github.com/SouthernPL/maptree/blob/master/imgs/maptree.gif)
+# demo
+
 # 基础用法
             //创建实例
             var myLineDeraction=new LineDeraction({
