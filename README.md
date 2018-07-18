@@ -27,17 +27,17 @@
 		          }
 		        })
 # 参数说明
-//创建实例的参数说明
-map:object,//地图实例
-wkid:num,//轨迹数据坐标系
-lineColor:string,//16位颜色
-lineWidth:num,//线宽
-arrowColor:string,//箭头颜色
-arrowSize:num,//箭头大小
-arrowPic:string,//这里你可以输入一个svg图片字符串M819.07712 478.69952l-...//用来自定义箭头符号
-step:num,//箭头间隔
-data:[[x,y],[x,y],[x,y]...],//轨迹数据格式
-correctAngle:num//正常情况下箭头方向朝右视为0°，当你的图片箭头朝向是其他时，需要输入与0°的偏差用于矫正;我的示例中图片的箭头是朝下的所以示			例中的参数输入的是90
+	//创建实例的参数说明
+	map:object,//地图实例
+	wkid:num,//轨迹数据坐标系
+	lineColor:string,//16位颜色
+	lineWidth:num,//线宽
+	arrowColor:string,//箭头颜色
+	arrowSize:num,//箭头大小
+	arrowPic:string,//这里你可以输入一个svg图片字符串M819.07712 478.69952l-...//用来自定义箭头符号
+	step:num,//箭头间隔
+	data:[[x,y],[x,y],[x,y]...],//轨迹数据格式
+	correctAngle:num//正常情况下箭头方向朝右视为0°，当你的图片箭头朝向是其他时，需要输入与0°的偏差用于矫正;我的示例中图片的箭头是朝下的所以示			例中的参数输入的是90
   	startPic:'',//起点图片的路径
   	startSize:25,//图片大小
   	endPic:'',//终点图片的路径
