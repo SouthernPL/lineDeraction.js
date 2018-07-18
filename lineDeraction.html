@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>linederaction</title>
+	<link rel="stylesheet" href="https://js.arcgis.com/3.25/esri/css/esri.css">
+	<script type="text/javascript">
+            var dojoConfig = {
+                async: true, 
+                parseOnLoad: false,
+                packages: [{ //解释：require(["js/.."],function(){}) 中  js/ 即为 location的值
+                    name: "libs", //对应require引用包里的js 
+                    // location: location.origin+"/libs" //对应的路径
+                    location: location.pathname.replace(/\/[^/]*$/, '') + '/libs' //对应的路径
+                }]
+            };
+    </script>
+
+	<script src="https://js.arcgis.com/3.25/"></script>
+	<script src="./libs/jquery.min.js"></script>
+	<style>
+		.mapContainer{
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			bottom: 0px;
+			left: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div class="mapContainer" id="map"></div>
+	<script>
+		require(["esri/map",
+            'libs/LineDeraction',
+            "dojo/domReady!"],
+            function(
+            Map,
+            LineDeraction,
+            ) {
+
+            	var map = new Map("map", {
+		          center: [87.430157,43.899799],
+		          zoom: 10,
+		          maxZoom:17,
+		          basemap: "satellite",
+		          logo:false,
+		        });
+
+		        //使用封装版本的绘制方法类
+		        var myLineDeraction=new LineDeraction({
+		            map:map,
+		            wkid:3857,
+		            // arrowPic:string,//这里你可以输入一个svg图片字符串M819.07712 478.69952l-...//用来自定义箭头符号
+		            // data:[[x,y],[x,y],[x,y]...],//数据格式
+		            startPic:'imgs/startpoint.png',//图片的路径
+		            endPic:'imgs/endpoint.png',//图片的路径
+		        });
+
+
+		        //异步函数更新数据
+		        $.ajax({
+		          url:'./data/mock.json',
+		          type:'GET',
+		          success:function(res){
+		            console.log(res);
+		            var pointsData=res.map(function(val,key){
+		              return [val.lon,val.lat];
+		            });
+
+		            myLineDeraction.updateData(pointsData);//使用此方法动态刷新数据
+
+		          }
+		        })
+
+        });
+	</script>
+</body>
+</html>
